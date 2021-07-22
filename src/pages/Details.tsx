@@ -1,40 +1,40 @@
-import getFruits from "api/getFruits";
-import BackIcon from "components/BackIcon";
-import Head from "components/Head";
-import ImageAttribution from "components/ImageAttribution";
-import LoadingOrError from "components/LoadingOrError";
-import React, { ReactElement } from "react";
-import { useQuery } from "react-query";
-import { Link, Redirect, RouteComponentProps } from "react-router-dom";
+import getFruits from "api/getFruits"
+import BackIcon from "components/BackIcon"
+import Head from "components/Head"
+import ImageAttribution from "components/ImageAttribution"
+import LoadingOrError from "components/LoadingOrError"
+import React, { ReactElement } from "react"
+import { useQuery } from "react-query"
+import { Link, Redirect, RouteComponentProps } from "react-router-dom"
 
 export default function DetailsPage({
   match,
 }: RouteComponentProps<{ fruitName: string }>): ReactElement {
-  const { isLoading, isError, error, data } = useQuery("fruits", getFruits);
+  const { isLoading, isError, error, data } = useQuery("fruits", getFruits)
   if (isLoading || isError) {
-    return <LoadingOrError error={error as Error} />;
+    return <LoadingOrError error={error as Error} />
   }
 
-  const { fruitName } = match.params;
+  const { fruitName } = match.params
   const fruit = data?.find(
     (f) => f.name.toLowerCase() === fruitName.toLowerCase()
-  );
+  )
   if (!fruit) {
-    return <Redirect to="/" />;
+    return <Redirect to="/" />
   }
 
-  const isMobile = window.matchMedia("(min-width: 640px)").matches;
+  const isMobile = window.matchMedia("(min-width: 640px)").matches
   const imageWidth =
     (isMobile ? window.innerWidth * 0.4 : window.innerWidth) *
-    window.devicePixelRatio;
+    window.devicePixelRatio
   const imageHeight =
     (isMobile ? window.innerHeight : window.innerHeight * 0.3) *
-    window.devicePixelRatio;
+    window.devicePixelRatio
 
   return (
     <>
       <Head title={fruit.name} />
-      <div className="min-h-screen flex flex-col sm:flex-row items-center">
+      <div className="content min-h-screen flex flex-col sm:flex-row items-center">
         <div className="relative">
           <img
             data-cy="FruitImage"
@@ -82,5 +82,5 @@ export default function DetailsPage({
         </div>
       </div>
     </>
-  );
+  )
 }

@@ -17,6 +17,7 @@
         ]
       }
     ],
+    "jsx-a11y/no-autofocus": "off",
     "unicorn/prefer-module": "off"
   },
   "overrides": [
@@ -53,6 +54,7 @@
           }
         ],
         "react/require-default-props": "off",
+        "jsx-a11y/no-autofocus": "off",
         "unicorn/filename-case": [
           "error",
           {

@@ -35,6 +35,45 @@
 @tailwind components;
 @tailwind utilities;
 
+.root,
+#root {
+  --primary: #367ee9;
+  --secondary: #a0aec0;
+  --accent: #718096;
+  --background: #fff;
+  --main: #0d0106;
+  --header: #2d3748;
+}
+
 body .content {
   /* padding-top: 47px; */
+}
+
+.search-results {
+  top: 40px;
+  right: -37px;
+}
+
+.account-menu a {
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 100ms ease;
+}
+
+.account-menu a:hover {
+  background-color: var(--secondary);
+}
+
+@media (prefers-color-scheme: dark) {
+  .root,
+  #root {
+    --primary: #367ee9;
+    --secondary: #2d3748;
+    --accent: #718096;
+    --background: #000;
+    --main: #0d0106;
+    --header: #2d3748;
+  }
+  .search-results {
+  }
 }

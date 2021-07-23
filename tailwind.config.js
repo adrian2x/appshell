@@ -8,6 +8,16 @@ module.exports = {
     fontFamily: {
       sans: ["Inter", defaultConfig.theme.fontFamily.sans],
     },
+    extend: {
+      colors: {
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        main: "var(--main)",
+        background: "var(--background)",
+        header: "var(--header)",
+        accent: "var(--accent)",
+      },
+    },
   },
   darkMode: "media",
   plugins: [formsPlugin],
